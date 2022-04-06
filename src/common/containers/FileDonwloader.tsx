@@ -1,5 +1,9 @@
+import { Center } from "@mantine/core";
+
 function FileDonwloader() {
-  return <div>FileDonwloader</div>;
+  return (
+    <Center style={{ width: "100%", minHeight: "50vh" }}>FileDonwloader</Center>
+  );
 }
 
 export default FileDonwloader;

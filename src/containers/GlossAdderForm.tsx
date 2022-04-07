@@ -1,5 +1,6 @@
 import { Formik, Form, FormikHelpers } from "formik";
 import { Title, Grid } from "@mantine/core";
+import FormikController from "src/components/FormikController/FormikController";
 
 type ValueType = {
   fileUpload: FormData | null;
@@ -29,6 +30,12 @@ function GlossAdderForm() {
                 Gloss Adder
               </Title>
             </Grid.Col>
+
+            <FormikController
+              control="drop-zone"
+              label="FileDropZone"
+              name="fileUpload"
+            />
           </Grid>
         </Form>
       )}

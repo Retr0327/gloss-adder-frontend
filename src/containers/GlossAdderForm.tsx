@@ -2,9 +2,8 @@ import { Formik, Form, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { IconUpload } from "@tabler/icons";
 import SelectedFiles from "./SelectedFiles";
-import AlertMessage from "@components/AlertMessage";
 import { Title, Grid, Button, Center } from "@mantine/core";
-import FormikController from "@components/FormikController/FormikController";
+import { AlertMessage, FormikController } from "@components/index";
 
 type ValueType = {
   fileUpload: FormData | null;

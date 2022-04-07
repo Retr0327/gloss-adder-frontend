@@ -1,4 +1,5 @@
 import { Formik, Form, FormikHelpers } from "formik";
+import SelectedFiles from "./SelectedFiles";
 import { Title, Grid } from "@mantine/core";
 import FormikController from "src/components/FormikController/FormikController";
 
@@ -36,6 +37,8 @@ function GlossAdderForm() {
               label="FileDropZone"
               name="fileUpload"
             />
+
+            <SelectedFiles files={formik.values.fileUpload} />
           </Grid>
         </Form>
       )}

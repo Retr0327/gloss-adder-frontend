@@ -60,9 +60,14 @@ function GlossAdderForm() {
                 <Button type="submit" leftIcon={<IconUpload />}>
                   上傳
                 </Button>
-                <AlertMessage />
               </Center>
             </Grid.Col>
+
+            {formik.errors.fileUpload && (
+              <Grid.Col xs={5} sm={5} md={5} lg={5} mt={10}>
+                <AlertMessage message="請先選取檔案" />
+              </Grid.Col>
+            )}
           </Grid>
         </Form>
       )}

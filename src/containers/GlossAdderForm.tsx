@@ -60,6 +60,7 @@ function GlossAdderForm() {
                 <Button type="submit" leftIcon={<IconUpload />}>
                   上傳
                 </Button>
+                <AlertMessage />
               </Center>
             </Grid.Col>
           </Grid>

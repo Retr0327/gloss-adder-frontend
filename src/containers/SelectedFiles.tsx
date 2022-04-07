@@ -5,9 +5,15 @@ type SelectedFilesProps = {
 };
 
 function SelectedFiles(props: SelectedFilesProps) {
-  console.log(props);
+  const { files } = props;
 
-  return <></>;
+  if (files) {
+    const objectValues = Object.values(files);
+
+    return <></>;
+  }
+
+  return null;
 }
 
 export default SelectedFiles;

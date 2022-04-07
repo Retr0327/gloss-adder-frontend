@@ -53,7 +53,12 @@ function SelectedFiles(props: SelectedFilesProps) {
   }
 
   return (
-    <Table verticalSpacing="md" horizontalSpacing="sm" fontSize="lg">
+    <Table
+      verticalSpacing="md"
+      horizontalSpacing="sm"
+      fontSize="lg"
+      width="100%"
+    >
       <thead>
         <tr>
           <th>檔案名稱</th>
@@ -63,7 +68,7 @@ function SelectedFiles(props: SelectedFilesProps) {
           <th>刪除</th>
         </tr>
       </thead>
-      <tbody>{fileRows}</tbody>
+      {fileRows && <tbody>{fileRows}</tbody>}
     </Table>
   );
 }

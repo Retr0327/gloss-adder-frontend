@@ -1,7 +1,8 @@
 import { Formik, Form, FormikHelpers } from "formik";
 import * as Yup from "yup";
+import { IconUpload } from "@tabler/icons";
 import SelectedFiles from "./SelectedFiles";
-import { Title, Grid } from "@mantine/core";
+import { Title, Grid, Button, Center } from "@mantine/core";
 import FormikController from "src/components/FormikController/FormikController";
 
 type ValueType = {
@@ -52,6 +53,14 @@ function GlossAdderForm() {
 
             <Grid.Col xs={12} sm={12} md={12} lg={10}>
               <SelectedFiles files={formik.values.fileUpload} />
+            </Grid.Col>
+
+            <Grid.Col xs={12} sm={12} md={12} lg={10} mt={60}>
+              <Center>
+                <Button type="submit" leftIcon={<IconUpload />}>
+                  上傳
+                </Button>
+              </Center>
             </Grid.Col>
           </Grid>
         </Form>

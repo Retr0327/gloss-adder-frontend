@@ -1,9 +1,11 @@
-import { Text } from "@mantine/core";
+import { Text, Title, Grid } from "@mantine/core";
 
 function GlossAdderForm() {
   return (
     <Text size="xl" weight={500}>
-      GlossAdderForm
+      <Title order={1} align="center">
+        Sample Form
+      </Title>
     </Text>
   );
 }

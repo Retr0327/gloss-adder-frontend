@@ -6,7 +6,7 @@ import { ControlledProps } from "src/typings";
 
 const TXT_MIME_TYPE = ["text/plain"];
 
-function FileDropZone(props: ControlledProps) {
+function FileDropZone(props: ControlledProps & DropzoneProps) {
   const theme = useMantineTheme();
   const { label, name, ...rest } = props;
   const [formik, hasError] = useCustomFormik(name);
@@ -21,6 +21,7 @@ function FileDropZone(props: ControlledProps) {
       onReject={(files) => console.log("rejected files", files)}
       maxSize={3 * 1024 ** 2}
       accept={TXT_MIME_TYPE}
+      {...rest}
       onDrop={handleOnDrop}
     >
       {(status) => {

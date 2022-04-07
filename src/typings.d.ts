@@ -15,6 +15,5 @@ export interface SetFieldValuesProps<ValueType> {
 
 type ControlledProps = { label: string; name: string };
 
-type ControllerProps = ControlledProps & {
-  control: "drop-zone";
-} & DropzoneProps;
+type ControllerProps = ControlledProps &
+  ({ control: "drop-zone" } & Omit<DropzoneProps>);

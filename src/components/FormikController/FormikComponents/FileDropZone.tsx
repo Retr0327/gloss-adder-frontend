@@ -2,13 +2,12 @@ import useCustomFormik from "./CustomFormik";
 import { useMantineTheme } from "@mantine/core";
 import { Dropzone, DropzoneProps } from "@mantine/dropzone";
 import FileDropzoneChildren from "./Helpers/FileDropZoneTools";
-import { SetFieldValuesProps, ValueType, ControlledProps } from "src/typings";
+import { ControlledProps } from "src/typings";
 
 const TXT_MIME_TYPE = ["text/plain"];
-const theme = useMantineTheme();
 
-// { setFieldValue }: SetFieldValuesProps<ValueType>
-function FileDropZone(props: DropzoneProps & ControlledProps) {
+function FileDropZone(props: ControlledProps) {
+  const theme = useMantineTheme();
   const { label, name, ...rest } = props;
   const [formik, hasError] = useCustomFormik(name);
 
@@ -19,7 +18,6 @@ function FileDropZone(props: DropzoneProps & ControlledProps) {
 
   return (
     <Dropzone
-      {...rest}
       onReject={(files) => console.log("rejected files", files)}
       maxSize={3 * 1024 ** 2}
       accept={TXT_MIME_TYPE}

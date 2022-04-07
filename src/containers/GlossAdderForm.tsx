@@ -1,15 +1,15 @@
 import { Formik, Form, FormikHelpers } from "formik";
-import { Text, Title, Grid } from "@mantine/core";
+import { Title, Grid } from "@mantine/core";
 
 type ValueType = {
   fileUpload: FormData | null;
-  clitic: string;
+  cliticOption: string;
 };
 
 function GlossAdderForm() {
   const initialValues: ValueType = {
     fileUpload: null,
-    clitic: "",
+    cliticOption: "",
   };
 
   const onSubmit = async (

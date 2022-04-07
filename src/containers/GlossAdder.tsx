@@ -1,11 +1,10 @@
-import { Center, Text } from "@mantine/core";
+import { Center } from "@mantine/core";
+import GlossAdderForm from "./GlossAdderForm";
 
 function GlossAdder() {
   return (
     <Center style={{ width: "100%", minHeight: "50vh" }}>
-      <Text size="xl" weight={500}>
-        Gloss Adder
-      </Text>
+      <GlossAdderForm />
     </Center>
   );
 }

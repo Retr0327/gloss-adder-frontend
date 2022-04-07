@@ -1,6 +1,8 @@
 import { Group, Text, useMantineTheme, MantineTheme } from "@mantine/core";
 import { Upload, FileImport, X, Icon as TablerIcon } from "tabler-icons-react";
-import { Dropzone, DropzoneStatus, IMAGE_MIME_TYPE } from "@mantine/dropzone";
+import { Dropzone, DropzoneStatus } from "@mantine/dropzone";
+
+const TXT_MIME_TYPE = ["text/plain"];
 
 function getIconColor(status: DropzoneStatus, theme: MantineTheme) {
   return status.accepted
@@ -60,7 +62,7 @@ function Demo() {
       onDrop={(files) => console.log("accepted files", files)}
       onReject={(files) => console.log("rejected files", files)}
       maxSize={3 * 1024 ** 2}
-      accept={IMAGE_MIME_TYPE}
+      accept={TXT_MIME_TYPE}
     >
       {(status) => {
         return dropzoneChildren(status, theme);

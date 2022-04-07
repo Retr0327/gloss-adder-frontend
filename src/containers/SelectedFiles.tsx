@@ -1,10 +1,11 @@
 import React from "react";
+import { useFormikContext } from "formik";
 import { IconFileText } from "@tabler/icons";
 import { Table, Button } from "@mantine/core";
 
-type SelectedFilesProps = {
+interface SelectedFilesProps {
   files: FormData | null;
-};
+}
 
 interface FileProps {
   path: string;
@@ -18,11 +19,20 @@ interface FileProps {
 
 function SelectedFiles(props: SelectedFilesProps) {
   const { files } = props;
+  const { setFieldValue } = useFormikContext();
 
   let fileRows = null;
 
   if (files) {
     const filesArray = Object.values(files);
+
+    const handleOnClick = (fileName: string) => () => {
+      const filteredFilesArray = filesArray.filter(
+        (value) => value.name !== fileName
+      );
+
+      setFieldValue("fileUpload", filteredFilesArray);
+    };
 
     fileRows = filesArray.map((value: FileProps) => (
       <tr key={value.name}>
@@ -34,7 +44,9 @@ function SelectedFiles(props: SelectedFilesProps) {
         <td width="20%">{value.size}</td>
         <td width="20%">clitics</td>
         <td width="20%">
-          <Button color="red">刪除</Button>
+          <Button color="red" onClick={handleOnClick(value.name)}>
+            刪除
+          </Button>
         </td>
       </tr>
     ));

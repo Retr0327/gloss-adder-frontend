@@ -32,13 +32,17 @@ function GlossAdderForm() {
               </Title>
             </Grid.Col>
 
-            <FormikController
-              control="drop-zone"
-              label="FileDropZone"
-              name="fileUpload"
-            />
+            <Grid.Col xs={12} sm={12} md={12} lg={10}>
+              <FormikController
+                control="drop-zone"
+                label="FileDropZone"
+                name="fileUpload"
+              />
+            </Grid.Col>
 
-            <SelectedFiles files={formik.values.fileUpload} />
+            <Grid.Col xs={12} sm={12} md={12} lg={10}>
+              <SelectedFiles files={formik.values.fileUpload} />
+            </Grid.Col>
           </Grid>
         </Form>
       )}

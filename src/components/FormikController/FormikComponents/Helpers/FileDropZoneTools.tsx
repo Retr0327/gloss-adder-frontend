@@ -27,7 +27,7 @@ function ImageUploadIcon({
   return <FileImport {...props} />;
 }
 
-function FileDropzoneChildren(status: DropzoneStatus, theme: MantineTheme) {
+function fileDropzoneChildren(status: DropzoneStatus, theme: MantineTheme) {
   return (
     <Group
       position="center"
@@ -52,4 +52,4 @@ function FileDropzoneChildren(status: DropzoneStatus, theme: MantineTheme) {
   );
 }
 
-export default FileDropzoneChildren;
+export default fileDropzoneChildren;

@@ -1,4 +1,5 @@
 import { Formik, Form, FormikHelpers } from "formik";
+import * as Yup from "yup";
 import SelectedFiles from "./SelectedFiles";
 import { Title, Grid } from "@mantine/core";
 import FormikController from "src/components/FormikController/FormikController";
@@ -14,6 +15,11 @@ function GlossAdderForm() {
     cliticOption: "",
   };
 
+  const validationSchema = Yup.object({
+    fileUpload: Yup.mixed().required("請先選檔案！"),
+    // clitic: Yup.number().required("請選擇是否分開人稱代名詞"),
+  });
+
   const onSubmit = async (
     values: ValueType,
     actions: FormikHelpers<ValueType>
@@ -22,7 +28,11 @@ function GlossAdderForm() {
   };
 
   return (
-    <Formik initialValues={initialValues} onSubmit={onSubmit}>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      validationSchema={validationSchema}
+    >
       {(formik) => (
         <Form>
           <Grid justify="center" gutter="xl">

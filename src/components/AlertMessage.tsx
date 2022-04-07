@@ -2,7 +2,7 @@ import { Alert } from "@mantine/core";
 import { IconAlertCircle } from "@tabler/icons";
 
 type AlertMessageProps = {
-  title: string;
+  title?: string;
   message: string;
 };
 

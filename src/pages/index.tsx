@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
 import { Container } from "@mantine/core";
-import FileDonwloader from "src/common/containers/FileDonwloader";
+import GlossAdder from "src/containers/GlossAdder";
 
 const Home: NextPage = () => {
   return (
     <Container>
-      <FileDonwloader />
+      <GlossAdder />
     </Container>
   );
 };

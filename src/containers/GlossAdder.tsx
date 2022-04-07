@@ -1,6 +1,6 @@
 import { Center, Text } from "@mantine/core";
 
-function FileDonwloader() {
+function GlossAdder() {
   return (
     <Center style={{ width: "100%", minHeight: "50vh" }}>
       <Text size="xl" weight={500}>
@@ -10,4 +10,4 @@ function FileDonwloader() {
   );
 }
 
-export default FileDonwloader;
+export default GlossAdder;

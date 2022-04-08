@@ -1,7 +1,7 @@
 import { DropzoneProps } from "@mantine/dropzone";
 
 export type ValueType = {
-  fileUpload: FormData | null;
+  fileUpload: File[];
   cliticOption: string;
 };
 

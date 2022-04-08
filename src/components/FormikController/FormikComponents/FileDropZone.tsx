@@ -1,19 +1,28 @@
 import useCustomFormik from "./CustomFormik";
+import { ControlledProps } from "src/typings";
 import { useMantineTheme } from "@mantine/core";
 import { Dropzone, DropzoneProps } from "@mantine/dropzone";
 import fileDropzoneChildren from "./Helpers/FileDropZoneTools";
-import { ControlledProps } from "src/typings";
 
 const TXT_MIME_TYPE = ["text/plain"];
 
-function FileDropZone(props: ControlledProps & DropzoneProps) {
+type UploadFile = {
+  uploadFile: File[];
+};
+
+function FileDropZone(props: ControlledProps & DropzoneProps & UploadFile) {
   const theme = useMantineTheme();
-  const { label, name, ...rest } = props;
+  const { label, name, uploadFile, ...rest } = props;
   const [formik, hasError] = useCustomFormik(name);
 
-  const handleOnDrop = (files: File[]) => {
-    console.log("accepted files", files);
-    formik.setFieldValue("fileUpload", files);
+  const handleOnDrop = (acceptedFiles: File[]) => {
+    if (!acceptedFiles.length) {
+      return;
+    }
+
+    console.log("accepted files", acceptedFiles);
+
+    return formik.setFieldValue(name, uploadFile?.concat(acceptedFiles));
   };
 
   return (

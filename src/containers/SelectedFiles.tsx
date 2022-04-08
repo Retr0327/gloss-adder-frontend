@@ -42,7 +42,6 @@ function SelectedFiles(props: SelectedFilesProps) {
           txt
         </td>
         <td width="20%">{value.size}</td>
-        <td width="20%">clitics</td>
         <td width="20%">
           <Button color="red" onClick={handleOnClick(value.name)}>
             刪除
@@ -64,7 +63,6 @@ function SelectedFiles(props: SelectedFilesProps) {
           <th>檔案名稱</th>
           <th>副檔名</th>
           <th>大小</th>
-          <th>clitics 選項</th>
           <th>刪除</th>
         </tr>
       </thead>

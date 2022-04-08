@@ -1,7 +1,7 @@
 import useCustomFormik from "./CustomFormik";
 import { useMantineTheme } from "@mantine/core";
 import { Dropzone, DropzoneProps } from "@mantine/dropzone";
-import FileDropzoneChildren from "./Helpers/FileDropZoneTools";
+import fileDropzoneChildren from "./Helpers/FileDropZoneTools";
 import { ControlledProps } from "src/typings";
 
 const TXT_MIME_TYPE = ["text/plain"];
@@ -25,7 +25,7 @@ function FileDropZone(props: ControlledProps & DropzoneProps) {
       onDrop={handleOnDrop}
     >
       {(status) => {
-        return FileDropzoneChildren(status, theme);
+        return fileDropzoneChildren(status, theme);
       }}
     </Dropzone>
   );

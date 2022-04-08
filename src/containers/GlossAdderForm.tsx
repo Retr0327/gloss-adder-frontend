@@ -1,18 +1,18 @@
-import { Formik, Form, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { IconUpload } from "@tabler/icons";
 import SelectedFiles from "./SelectedFiles";
+import { Formik, Form, FormikHelpers } from "formik";
 import { Title, Grid, Button, Center } from "@mantine/core";
 import { AlertMessage, FormikController } from "@components/index";
 
 type ValueType = {
-  fileUpload: FormData | null;
+  fileUpload: FormData | [];
   cliticOption: string;
 };
 
 function GlossAdderForm() {
   const initialValues: ValueType = {
-    fileUpload: null,
+    fileUpload: [],
     cliticOption: "",
   };
 
@@ -48,6 +48,7 @@ function GlossAdderForm() {
                 control="drop-zone"
                 label="fileUpload"
                 name="fileUpload"
+                uploadFile={formik.values.fileUpload}
               />
             </Grid.Col>
 

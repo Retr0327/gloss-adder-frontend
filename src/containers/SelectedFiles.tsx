@@ -4,7 +4,7 @@ import { IconFileText } from "@tabler/icons";
 import { Table, Button } from "@mantine/core";
 
 interface SelectedFilesProps {
-  files: FormData | null;
+  files: FormData | [];
 }
 
 interface FileProps {

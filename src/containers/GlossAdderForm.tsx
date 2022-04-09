@@ -2,22 +2,10 @@ import * as Yup from "yup";
 import { IconUpload } from "@tabler/icons";
 import SelectedFiles from "./SelectedFiles";
 import { FormValueType } from "src/typings";
+import { options } from "./Options/options";
 import { Formik, Form, FormikHelpers } from "formik";
 import { Title, Grid, Button, Center } from "@mantine/core";
 import { AlertMessage, FormikController } from "@components/index";
-
-const data = [
-  {
-    label: "Homer Simpson",
-    value: "Homer Simpson",
-    description: "Overweight, lazy, and often ignorant",
-  },
-  {
-    label: "Spongebob Squarepants",
-    value: "Spongebob Squarepants",
-    description: "Not just a sponge",
-  },
-];
 
 function GlossAdderForm() {
   const initialValues: FormValueType = {
@@ -67,7 +55,7 @@ function GlossAdderForm() {
                 label="人稱格式"
                 name="cliticOption"
                 placeholder="下拉選單"
-                options={data}
+                options={options}
               />
             </Grid.Col>
 

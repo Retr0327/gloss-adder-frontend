@@ -5,6 +5,7 @@ import {
   Select as MantineSelect,
   SelectProps,
 } from "@mantine/core";
+import { SelectItem } from "./Helpers";
 import useCustomFormik from "./CustomFormik";
 import { IconChevronDown } from "@tabler/icons";
 import { OptionsProps, ControlledProps } from "src/typings";
@@ -21,27 +22,6 @@ const data = [
     description: "Not just a sponge",
   },
 ];
-
-interface ItemProps extends React.ComponentPropsWithoutRef<"div"> {
-  image: string;
-  label: string;
-  description: string;
-}
-
-const SelectItem = forwardRef<HTMLDivElement, ItemProps>(
-  ({ image, label, description, ...others }: ItemProps, ref) => (
-    <div ref={ref} {...others}>
-      <Group noWrap>
-        <div>
-          <Text size="sm">{label}</Text>
-          <Text size="xs" color="dimmed">
-            {description}
-          </Text>
-        </div>
-      </Group>
-    </div>
-  )
-);
 
 function Select(
   props: ControlledProps & OptionsProps & Omit<SelectProps, "data">

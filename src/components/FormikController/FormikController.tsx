@@ -7,6 +7,8 @@ function FormikController(props: ControllerProps) {
   switch (control) {
     case "drop-zone":
       return <FileDropZone {...rest} />;
+    case "select":
+      return <Select {...rest} />;
     default:
       return null;
   }

@@ -3,6 +3,7 @@ import { ControlledProps } from "src/typings";
 import { useMantineTheme } from "@mantine/core";
 import { Dropzone, DropzoneProps } from "@mantine/dropzone";
 import fileDropzoneChildren from "./Helpers/FileDropZoneTools";
+import removeDuplicateFiles from "./Helpers/removeDuplicateFiles";
 
 const TXT_MIME_TYPE = ["text/plain"];
 
@@ -20,9 +21,15 @@ function FileDropZone(props: ControlledProps & DropzoneProps & UploadFile) {
       return;
     }
 
-    console.log("accepted files", acceptedFiles);
+    const filteredAcceptedFiles = removeDuplicateFiles(
+      acceptedFiles,
+      uploadFile
+    );
 
-    return formik.setFieldValue(name, uploadFile?.concat(acceptedFiles));
+    return formik.setFieldValue(name, [
+      ...uploadFile,
+      ...filteredAcceptedFiles,
+    ]);
   };
 
   return (

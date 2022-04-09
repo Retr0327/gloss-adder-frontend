@@ -13,6 +13,12 @@ export interface SetFieldValuesProps<FormValueType> {
   ): void;
 }
 
+export type OptionType = {
+  label: string;
+  value: string;
+  description: string;
+};
+
 type ControlledProps = { label: string; name: string };
 
 type ControllerProps = ControlledProps &

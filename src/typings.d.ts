@@ -1,14 +1,14 @@
 import { DropzoneProps } from "@mantine/dropzone";
 
-export type ValueType = {
-  fileUpload: File[];
+export type FormValueType = {
+  fileUpload: FormData | [];
   cliticOption: string;
 };
 
-export interface SetFieldValuesProps<ValueType> {
-  setFieldValue<Field extends keyof ValueType>(
+export interface SetFieldValuesProps<FormValueType> {
+  setFieldValue<Field extends keyof FormValueType>(
     field: Field,
-    value: ValueType[Field],
+    value: FormValueType[Field],
     shouldValidate?: boolean
   ): void;
 }

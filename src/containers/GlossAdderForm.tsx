@@ -1,17 +1,13 @@
 import * as Yup from "yup";
 import { IconUpload } from "@tabler/icons";
 import SelectedFiles from "./SelectedFiles";
+import { FormValueType } from "src/typings";
 import { Formik, Form, FormikHelpers } from "formik";
 import { Title, Grid, Button, Center } from "@mantine/core";
 import { AlertMessage, FormikController } from "@components/index";
 
-type ValueType = {
-  fileUpload: FormData | [];
-  cliticOption: string;
-};
-
 function GlossAdderForm() {
-  const initialValues: ValueType = {
+  const initialValues: FormValueType = {
     fileUpload: [],
     cliticOption: "",
   };
@@ -22,8 +18,8 @@ function GlossAdderForm() {
   });
 
   const onSubmit = async (
-    values: ValueType,
-    actions: FormikHelpers<ValueType>
+    values: FormValueType,
+    actions: FormikHelpers<FormValueType>
   ) => {
     console.log(values);
   };

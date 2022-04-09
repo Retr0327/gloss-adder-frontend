@@ -8,12 +8,12 @@ import removeDuplicateFiles from "./Helpers/removeDuplicateFiles";
 const TXT_MIME_TYPE = ["text/plain"];
 
 type UploadFile = {
-  uploadFile: File[];
+  uploadedFile: File[];
 };
 
 function FileDropZone(props: ControlledProps & DropzoneProps & UploadFile) {
   const theme = useMantineTheme();
-  const { label, name, uploadFile, ...rest } = props;
+  const { label, name, uploadedFile, ...rest } = props;
   const [formik, hasError] = useCustomFormik(name);
 
   const handleOnDrop = (acceptedFiles: File[]) => {
@@ -23,11 +23,11 @@ function FileDropZone(props: ControlledProps & DropzoneProps & UploadFile) {
 
     const filteredAcceptedFiles = removeDuplicateFiles(
       acceptedFiles,
-      uploadFile
+      uploadedFile
     );
 
     return formik.setFieldValue(name, [
-      ...uploadFile,
+      ...uploadedFile,
       ...filteredAcceptedFiles,
     ]);
   };

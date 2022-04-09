@@ -48,7 +48,7 @@ function GlossAdderForm() {
                 control="drop-zone"
                 label="fileUpload"
                 name="fileUpload"
-                uploadFile={formik.values.fileUpload}
+                uploadedFile={formik.values.fileUpload}
               />
             </Grid.Col>
 

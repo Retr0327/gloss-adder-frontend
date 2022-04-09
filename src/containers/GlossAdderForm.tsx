@@ -7,6 +7,8 @@ import { FormikController } from "@components/index";
 import { Formik, Form, FormikHelpers } from "formik";
 import { Title, Grid, Button, Center } from "@mantine/core";
 
+let TIMESTAMP = new Date().getTime().toString();
+
 function GlossAdderForm() {
   const initialValues: FormValueType = {
     fileUpload: [],
@@ -22,7 +24,8 @@ function GlossAdderForm() {
     values: FormValueType,
     actions: FormikHelpers<FormValueType>
   ) => {
-    console.log(values);
+    const { fileUpload, cliticOption } = values;
+    
   };
 
   return (

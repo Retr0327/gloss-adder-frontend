@@ -1,3 +1,4 @@
+import { SelectProps } from "@mantine/core";
 import { DropzoneProps } from "@mantine/dropzone";
 
 export type FormValueType = {
@@ -22,4 +23,7 @@ export type OptionType = {
 type ControlledProps = { label: string; name: string };
 
 type ControllerProps = ControlledProps &
-  ({ control: "drop-zone" } & Omit<DropzoneProps>);
+  (
+    | ({ control: "drop-zone" } & Omit<DropzoneProps>)
+    | ({ control: "select"; options: OptionType[] } & Omit<SelectProps, "data">)
+  );

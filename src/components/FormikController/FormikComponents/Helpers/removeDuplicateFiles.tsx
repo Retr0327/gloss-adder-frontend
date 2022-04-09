@@ -1,4 +1,7 @@
-function removeDuplicateFiles(acceptedFiles: File[], uploadedFile: File[]) {
+function removeDuplicateFiles(
+  acceptedFiles: File[],
+  uploadedFile: File[]
+): File[] {
   const allFiles = [...uploadedFile];
 
   const allFileNames = allFiles.map((value) => value.name);

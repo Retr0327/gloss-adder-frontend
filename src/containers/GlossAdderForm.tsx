@@ -15,7 +15,7 @@ function GlossAdderForm() {
 
   const validationSchema = Yup.object({
     fileUpload: Yup.mixed().required("請先選檔案！"),
-    cliticOption: Yup.number().required("請選擇是否分開人稱代名詞"),
+    cliticOption: Yup.string().required("請選擇是否分開人稱代名詞"),
   });
 
   const onSubmit = async (
@@ -54,7 +54,6 @@ function GlossAdderForm() {
                 control="select"
                 label="人稱格式"
                 name="cliticOption"
-                placeholder="下拉選單"
                 options={options}
               />
             </Grid.Col>

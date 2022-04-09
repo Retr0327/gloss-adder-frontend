@@ -2,8 +2,7 @@ import useCustomFormik from "./CustomFormik";
 import { ControlledProps } from "src/typings";
 import { useMantineTheme } from "@mantine/core";
 import { Dropzone, DropzoneProps } from "@mantine/dropzone";
-import fileDropzoneChildren from "./Helpers/fileDropZoneTools";
-import removeDuplicateFiles from "./Helpers/removeDuplicateFiles";
+import { fileDropzoneChildren, removeDuplicateFiles } from "./Helpers/index";
 
 const TXT_MIME_TYPE = ["text/plain"];
 

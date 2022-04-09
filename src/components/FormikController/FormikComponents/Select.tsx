@@ -1,27 +1,8 @@
-import { forwardRef } from "react";
-import {
-  Group,
-  Text,
-  Select as MantineSelect,
-  SelectProps,
-} from "@mantine/core";
 import { SelectItem } from "./Helpers";
 import useCustomFormik from "./CustomFormik";
 import { IconChevronDown } from "@tabler/icons";
 import { OptionsProps, ControlledProps } from "src/typings";
-
-const data = [
-  {
-    label: "Homer Simpson",
-    value: "Homer Simpson",
-    description: "Overweight, lazy, and often ignorant",
-  },
-  {
-    label: "Spongebob Squarepants",
-    value: "Spongebob Squarepants",
-    description: "Not just a sponge",
-  },
-];
+import { Select as MantineSelect, SelectProps } from "@mantine/core";
 
 function Select(
   props: ControlledProps & OptionsProps & Omit<SelectProps, "data">
@@ -42,11 +23,10 @@ function Select(
       allowDeselect
       error={hasError}
       clearable
-      data={data}
+      data={options}
       placeholder={placeholder}
       itemComponent={SelectItem}
       {...rest}
-      // data={options}
     />
   );
 }

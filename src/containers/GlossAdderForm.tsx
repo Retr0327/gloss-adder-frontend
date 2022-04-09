@@ -6,6 +6,19 @@ import { Formik, Form, FormikHelpers } from "formik";
 import { Title, Grid, Button, Center } from "@mantine/core";
 import { AlertMessage, FormikController } from "@components/index";
 
+const data = [
+  {
+    label: "Homer Simpson",
+    value: "Homer Simpson",
+    description: "Overweight, lazy, and often ignorant",
+  },
+  {
+    label: "Spongebob Squarepants",
+    value: "Spongebob Squarepants",
+    description: "Not just a sponge",
+  },
+];
+
 function GlossAdderForm() {
   const initialValues: FormValueType = {
     fileUpload: [],
@@ -45,6 +58,16 @@ function GlossAdderForm() {
                 label="fileUpload"
                 name="fileUpload"
                 uploadedFile={formik.values.fileUpload}
+              />
+            </Grid.Col>
+
+            <Grid.Col xs={12} sm={12} md={12} lg={10}>
+              <FormikController
+                control="select"
+                label="人稱格式"
+                name="cliticOption"
+                placeholder="下拉選單"
+                options={data}
               />
             </Grid.Col>
 

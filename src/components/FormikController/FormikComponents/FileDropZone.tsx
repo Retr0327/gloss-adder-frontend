@@ -40,7 +40,7 @@ function FileDropZone(props: ControlledProps & DropzoneProps & UploadFile) {
       onDrop={handleOnDrop}
     >
       {(status) => {
-        return fileDropzoneChildren(status, theme);
+        return fileDropzoneChildren(status, theme, hasError);
       }}
     </Dropzone>
   );

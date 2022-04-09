@@ -1,15 +1,21 @@
-import { Group, Text, Select as MantineSelect } from "@mantine/core";
 import { forwardRef } from "react";
+import {
+  Group,
+  Text,
+  Select as MantineSelect,
+  SelectProps,
+} from "@mantine/core";
+import useCustomFormik from "./CustomFormik";
+import { IconChevronDown } from "@tabler/icons";
+import { OptionsProps, ControlledProps } from "src/typings";
 
 const data = [
   {
-    image: "https://img.icons8.com/clouds/256/000000/homer-simpson.png",
     label: "Homer Simpson",
     value: "Homer Simpson",
     description: "Overweight, lazy, and often ignorant",
   },
   {
-    image: "https://img.icons8.com/clouds/256/000000/spongebob-squarepants.png",
     label: "Spongebob Squarepants",
     value: "Spongebob Squarepants",
     description: "Not just a sponge",
@@ -37,16 +43,30 @@ const SelectItem = forwardRef<HTMLDivElement, ItemProps>(
   )
 );
 
-function Select() {
+function Select(
+  props: ControlledProps & OptionsProps & Omit<SelectProps, "data">
+) {
+  const { label, options, placeholder, name, ...rest } = props;
+  const [formik, hasError] = useCustomFormik(name);
+  const fieldValue = (formik.values as { [key: string]: any })[name];
+
   return (
     <MantineSelect
-      label="Choose employee of the month"
-      placeholder="Pick one"
-      itemComponent={SelectItem}
-      data={data}
+      rightSection={<IconChevronDown width={15} color="#9e9e9e" />}
+      styles={{ rightSection: { pointerEvents: "none" } }}
+      label={label}
+      name={name}
+      value={fieldValue}
+      onChange={(value) => formik.setFieldValue(name, value)}
+      onBlur={formik.handleBlur}
+      allowDeselect
+      error={hasError}
       clearable
-      maxDropdownHeight={400}
-      nothingFound="Nobody here"
+      data={data}
+      placeholder={placeholder}
+      itemComponent={SelectItem}
+      {...rest}
+      // data={options}
     />
   );
 }

@@ -20,6 +20,10 @@ export type OptionType = {
   description: string;
 };
 
+export interface OptionsProps {
+  options: OptionType[];
+}
+
 type ControlledProps = { label: string; name: string };
 
 type ControllerProps = ControlledProps &

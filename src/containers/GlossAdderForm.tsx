@@ -3,9 +3,9 @@ import { IconUpload } from "@tabler/icons";
 import SelectedFiles from "./SelectedFiles";
 import { FormValueType } from "src/typings";
 import { options } from "./Options/options";
+import { FormikController } from "@components/index";
 import { Formik, Form, FormikHelpers } from "formik";
 import { Title, Grid, Button, Center } from "@mantine/core";
-import { AlertMessage, FormikController } from "@components/index";
 
 function GlossAdderForm() {
   const initialValues: FormValueType = {
@@ -14,7 +14,7 @@ function GlossAdderForm() {
   };
 
   const validationSchema = Yup.object({
-    fileUpload: Yup.mixed().required("請先選檔案！"),
+    fileUpload: Yup.array().min(1, "請先選檔案！"),
     cliticOption: Yup.string().required("請選擇是否分開人稱代名詞"),
   });
 
@@ -69,12 +69,6 @@ function GlossAdderForm() {
                 </Button>
               </Center>
             </Grid.Col>
-
-            {formik.errors.fileUpload && (
-              <Grid.Col xs={5} sm={5} md={5} lg={5} mt={10}>
-                <AlertMessage message="請先選取檔案" />
-              </Grid.Col>
-            )}
           </Grid>
         </Form>
       )}

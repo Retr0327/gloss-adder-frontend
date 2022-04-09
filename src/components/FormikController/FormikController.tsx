@@ -1,5 +1,5 @@
 import { ControllerProps } from "src/typings";
-import FileDropZone from "./FormikComponents/FileDropZone";
+import { Select, FileDropZone } from "./FormikComponents/index";
 
 function FormikController(props: ControllerProps) {
   const { control, ...rest } = props;

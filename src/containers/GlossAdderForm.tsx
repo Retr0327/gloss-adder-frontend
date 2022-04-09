@@ -52,7 +52,7 @@ function GlossAdderForm() {
             <Grid.Col xs={5} sm={5} md={5} lg={5} mt={10}>
               <FormikController
                 control="select"
-                label="人稱格式"
+                placeholder="人稱格式"
                 name="cliticOption"
                 options={options}
               />

@@ -22,4 +22,6 @@ function initMiddleware(middleware: typeof cors) {
 
 const customCors = initMiddleware(cors);
 
+// await customCors(req, res, corsOptions);
+
 export default customCors;

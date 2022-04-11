@@ -6,7 +6,7 @@ function createFormData(files: FormData | [], token: string) {
     formData.append(`${token}-${index}-${file.name}`, file);
   }
 
-  formData.append("toke", token);
+  formData.append("token", token);
 
   return formData;
 }

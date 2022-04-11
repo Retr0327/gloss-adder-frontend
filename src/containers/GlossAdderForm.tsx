@@ -1,3 +1,4 @@
+import { useState } from "react";
 import * as Yup from "yup";
 import { IconUpload } from "@tabler/icons";
 import SelectedFiles from "./SelectedFiles";
@@ -12,6 +13,10 @@ import uploadGlossFile from "src/services/uploadGlossFile";
 let TIMESTAMP = new Date().getTime().toString();
 
 function GlossAdderForm() {
+  const [uploadPercentage, setUploadPercentage] = useState(0);
+
+  console.log(uploadPercentage)
+
   const initialValues: FormValueType = {
     fileUpload: [],
     cliticOption: "",
@@ -30,7 +35,10 @@ function GlossAdderForm() {
 
     const formData = createFormData(fileUpload, TIMESTAMP);
 
-    const [result, error] = await uploadGlossFile(formData);
+    const [result, error] = await uploadGlossFile(
+      formData,
+      setUploadPercentage
+    );
   };
 
   return (

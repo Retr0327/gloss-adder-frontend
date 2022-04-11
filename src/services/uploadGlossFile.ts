@@ -14,7 +14,10 @@ async function uploadGlossFile(
         );
       },
     };
-    const result = await axios.post("/api/uploadGloss", credentials, config);
+
+    const url = `api/uploadGloss?API_ROUTE_SECRET=${process.env.API_ROUTE_SECRET}`;
+
+    const result = await axios.post(url, credentials, config);
 
     return [result, null];
   } catch (error) {

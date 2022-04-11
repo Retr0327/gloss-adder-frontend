@@ -1,5 +1,10 @@
 import type { NextApiRequest } from "next";
-import formidable, { Options } from "formidable";
+import formidable, { Options, Fields, Files } from "formidable";
+
+interface ParseFile {
+  fields: Fields;
+  files: Files;
+}
 
 const formOptions: Options = {
   keepExtensions: true,
@@ -9,7 +14,7 @@ const formOptions: Options = {
   multiples: true,
 };
 
-const parseFile = (req: NextApiRequest) => {
+const parseFile = (req: NextApiRequest): Promise<ParseFile> => {
   return new Promise((resolve, reject) => {
     const form = new formidable.IncomingForm(formOptions);
 

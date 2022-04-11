@@ -15,8 +15,6 @@ let TIMESTAMP = new Date().getTime().toString();
 function GlossAdderForm() {
   const [uploadPercentage, setUploadPercentage] = useState(0);
 
-  console.log(uploadPercentage);
-
   const initialValues: FormValueType = {
     fileUpload: [],
     cliticOption: "",

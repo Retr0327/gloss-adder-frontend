@@ -6,16 +6,17 @@ import { FormValueType } from "src/typings";
 import { options } from "./Options/options";
 import { FormikController } from "@components/index";
 import { Formik, Form, FormikHelpers } from "formik";
+import ProgressBar from "src/components/ProgressBar";
 import createFormData from "./Helpers/createFormData";
-import { Title, Grid, Button, Center } from "@mantine/core";
 import uploadGlossFile from "src/services/uploadGlossFile";
+import { Title, Grid, Button, Center } from "@mantine/core";
 
 let TIMESTAMP = new Date().getTime().toString();
 
 function GlossAdderForm() {
   const [uploadPercentage, setUploadPercentage] = useState(0);
 
-  console.log(uploadPercentage)
+  console.log(uploadPercentage);
 
   const initialValues: FormValueType = {
     fileUpload: [],
@@ -39,6 +40,8 @@ function GlossAdderForm() {
       formData,
       setUploadPercentage
     );
+
+    setTimeout(() => setUploadPercentage(0), 2000);
   };
 
   return (
@@ -63,6 +66,10 @@ function GlossAdderForm() {
                 name="fileUpload"
                 uploadedFile={formik.values.fileUpload}
               />
+            </Grid.Col>
+
+            <Grid.Col xs={12} sm={12} md={12} lg={10} mt={10}>
+              <ProgressBar percentage={uploadPercentage} />
             </Grid.Col>
 
             <Grid.Col xs={5} sm={5} md={5} lg={5} mt={10}>

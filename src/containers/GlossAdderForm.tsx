@@ -7,6 +7,7 @@ import { FormikController } from "@components/index";
 import { Formik, Form, FormikHelpers } from "formik";
 import createFormData from "./Helpers/createFormData";
 import { Title, Grid, Button, Center } from "@mantine/core";
+import uploadGlossFile from "src/services/uploadGlossFile";
 
 let TIMESTAMP = new Date().getTime().toString();
 
@@ -29,8 +30,7 @@ function GlossAdderForm() {
 
     const formData = createFormData(fileUpload, TIMESTAMP);
 
-//  console.log(Object.fromEntries(formData))
-
+    const [result, error] = await uploadGlossFile(formData);
   };
 
   return (

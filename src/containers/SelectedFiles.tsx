@@ -21,7 +21,7 @@ function SelectedFiles(props: SelectedFilesProps) {
   const { files } = props;
   const { setFieldValue } = useFormikContext();
 
-  let fileRows = null;
+  let fileRows;
 
   if (files) {
     const filesArray = Object.values(files);

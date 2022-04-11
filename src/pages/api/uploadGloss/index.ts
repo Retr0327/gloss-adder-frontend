@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import checkAuthorized from "src/server/middleware/checkAuthorized";
+import { checkAuthorized } from "src/server/middleware/index";
 
 const handleUploadFile = async (req: NextApiRequest, res: NextApiResponse) => {
   return res.status(200).json({ msg: "123" });

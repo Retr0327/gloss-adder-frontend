@@ -4,12 +4,11 @@ import { IconUpload } from "@tabler/icons";
 import SelectedFiles from "./SelectedFiles";
 import { FormValueType } from "src/typings";
 import { options } from "./Options/options";
-import { FormikController } from "@components/index";
 import { Formik, Form, FormikHelpers } from "formik";
-import ProgressBar from "src/components/ProgressBar";
 import createFormData from "./Helpers/createFormData";
 import uploadGlossFile from "src/services/uploadGlossFile";
 import { Title, Grid, Button, Center } from "@mantine/core";
+import { FormikController, ProgressBar } from "@components/index";
 
 let TIMESTAMP = new Date().getTime().toString();
 

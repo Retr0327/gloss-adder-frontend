@@ -1,3 +1,4 @@
+import ProgressBar from "./ProgressBar";
 import FormikController from "./FormikController/FormikController";
 
-export { FormikController };
+export { FormikController, ProgressBar };

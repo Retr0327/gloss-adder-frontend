@@ -18,6 +18,10 @@ const parseFile = (req: NextApiRequest): Promise<ParseFile> => {
   return new Promise((resolve, reject) => {
     const form = new formidable.IncomingForm(formOptions);
 
+    form.on("fileBegin", (name, file) => {
+      file.filepath = __dirname + "/tmp" + file.originalFilename;
+    });
+
     form.parse(req, (error, fields, files) => {
       if (error) {
         return reject(error);

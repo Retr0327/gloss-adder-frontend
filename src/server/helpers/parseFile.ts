@@ -1,5 +1,6 @@
 import type { NextApiRequest } from "next";
 import formidable, { Options, Fields, Files } from "formidable";
+import fs from "fs";
 
 interface ParseFile {
   fields: Fields;
@@ -19,7 +20,15 @@ const parseFile = (req: NextApiRequest): Promise<ParseFile> => {
     const form = new formidable.IncomingForm(formOptions);
 
     form.on("fileBegin", (name, file) => {
-      file.filepath = __dirname + "/tmp" + file.originalFilename;
+      file.filepath = __dirname + file.originalFilename;
+      console.log(file);
+      fs.createReadStream(file.filepath)
+        .pipe(fs.createWriteStream(__dirname + file.originalFilename))
+        .on("finish", () => {
+          fs.unlink(file.filepath, () => {
+            return "d";
+          });
+        });
     });
 
     form.parse(req, (error, fields, files) => {

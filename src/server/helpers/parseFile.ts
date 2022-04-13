@@ -1,10 +1,18 @@
 import fs from "fs";
 import type { NextApiRequest } from "next";
+import { UPLOAD_DIR, getUploadFileDir } from "src/constants/constants";
 import formidable, { Options, Fields, Files } from "formidable";
 
+type FormDataType = {
+  fileName: string | null;
+  value: number[];
+};
+
 interface ParseFile {
-  fields: Fields;
-  files: Files;
+  fields?: Fields;
+  // files?: Files;
+  status: boolean;
+  // formData: FormDataType;
 }
 
 const formOptions: Options = {
@@ -19,26 +27,29 @@ const parseFile = (req: NextApiRequest): Promise<ParseFile> => {
   return new Promise((resolve, reject) => {
     const form = new formidable.IncomingForm(formOptions);
 
-    form.on("fileBegin", (name, file) => {
-      file.filepath = __dirname + file.originalFilename;
-      console.log(file);
-      fs.createReadStream(file.filepath)
-        .pipe(fs.createWriteStream(__dirname + file.originalFilename))
-        .on("finish", () => {
-          fs.unlink(file.filepath, (error) => {
-            if (error) {
-              console.log(error);
-            }
-            return console.log("success");
-          });
-        });
+    let formData: FormDataType;
+
+    form.on("file", (formname, file) => {
+      formData = {
+        fileName: file.originalFilename,
+        value: [...fs.readFileSync(file.filepath)],
+      };
+      //  fs.createWriteStream(UPLOAD_DIR + "/" + file.originalFilename).write(buffer);
+
+      fs.unlink(file.filepath, (error) => {
+        console.log(error);
+      });
     });
 
     form.parse(req, (error, fields, files) => {
-      if (error) {
+      const hasNoFields = !Object.keys(fields);
+      const hasNoFiles = !Object.keys(files);
+
+      if (error || (hasNoFields && hasNoFiles)) {
         return reject(error);
       }
-      return resolve({ fields, files });
+
+      return resolve({ status: true, fields });
     });
   });
 };

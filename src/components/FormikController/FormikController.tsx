@@ -1,4 +1,4 @@
-import { ControllerProps } from "src/typings";
+import { ControllerProps } from "types";
 import { Select, FileDropZone } from "./FormikComponents/index";
 
 function FormikController(props: ControllerProps) {

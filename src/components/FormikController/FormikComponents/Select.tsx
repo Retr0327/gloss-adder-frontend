@@ -1,7 +1,7 @@
 import { SelectItem } from "./Helpers";
 import useCustomFormik from "./CustomFormik";
 import { IconChevronDown } from "@tabler/icons";
-import { OptionsProps, ControlledProps } from "src/typings";
+import { OptionsProps, ControlledProps } from "types";
 import { Select as MantineSelect, SelectProps } from "@mantine/core";
 
 function Select(

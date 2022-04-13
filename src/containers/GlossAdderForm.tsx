@@ -1,8 +1,8 @@
 import { useState } from "react";
 import * as Yup from "yup";
+import { FormValueType } from "types";
 import { IconUpload } from "@tabler/icons";
 import SelectedFiles from "./SelectedFiles";
-import { FormValueType } from "src/typings";
 import { options } from "./Options/options";
 import { Formik, Form, FormikHelpers } from "formik";
 import createFormData from "./Helpers/createFormData";

@@ -5,7 +5,7 @@ import formidable, { Options, Fields, Files } from "formidable";
 
 type FormDataType = {
   fileName: string | null;
-  value: number[];
+  value: number[] | Buffer;
 };
 
 interface ParseFile {
@@ -30,10 +30,19 @@ const parseFile = (req: NextApiRequest): Promise<ParseFile> => {
     let formData: FormDataType;
 
     form.on("file", (formname, file) => {
+      const token = formname.match(/^\d*(?=\-)/g);
+
+      const fileName = file.originalFilename;
+      const buffer = fs.readFileSync(file.filepath);
+
       formData = {
         fileName: file.originalFilename,
-        value: [...fs.readFileSync(file.filepath)],
+        value: fs.readFileSync(file.filepath),
       };
+      //   do cache here
+
+      console.log("formname", formname);
+      console.log("formData", formData);
       //  fs.createWriteStream(UPLOAD_DIR + "/" + file.originalFilename).write(buffer);
 
       fs.unlink(file.filepath, (error) => {

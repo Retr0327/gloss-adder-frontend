@@ -15,7 +15,7 @@ async function uploadGlossFile(
       },
     };
 
-    const url = `api/uploadGloss?API_ROUTE_SECRET=${process.env.NEXT_PUBLIC_API_ROUTE_SECRET}`;
+    const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/uploadGloss`;
 
     const result = await axios.post(url, credentials, config);
 

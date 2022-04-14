@@ -11,7 +11,7 @@ const ContentSecurityPolicy = `
  style-src 'self' 'unsafe-inline' *.googleapis.com;
  child-src *.google.com;
  media-src 'none';
- connect-src 'self';
+ connect-src 'self' http://localhost:3000;
  font-src 'self';
 `;
 

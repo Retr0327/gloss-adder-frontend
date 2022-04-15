@@ -8,7 +8,7 @@ export type CredentialsType = {
 export type CustomFetchType = {
   method: string;
   url: string;
-  credentials: CredentialsType;
+  credentials?: CredentialsType;
   purpose?: string;
 };
 

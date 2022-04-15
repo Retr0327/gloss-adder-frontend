@@ -9,12 +9,14 @@ import SelectedFiles from "@components/SelectedFiles";
 import createFormData from "./Helpers/createFormData";
 import uploadGlossFile from "src/services/uploadGlossFile";
 import { Title, Grid, Button, Center } from "@mantine/core";
+import ButtonController from "@components/ButtonController";
 import { FormikController, ProgressBar } from "@components/index";
 
 let TIMESTAMP = new Date().getTime().toString();
 
 function GlossAdderForm() {
   const router = useRouter();
+  const [process, setProcess] = useState("upload");
   const [uploadPercentage, setUploadPercentage] = useState(0);
 
   const initialValues: FormValueType = {
@@ -98,9 +100,7 @@ function GlossAdderForm() {
 
             <Grid.Col xs={12} sm={12} md={12} lg={10} mt={60}>
               <Center>
-                <Button type="submit" leftIcon={<IconUpload />}>
-                  上傳
-                </Button>
+                <ButtonController control={process} />
               </Center>
             </Grid.Col>
           </Grid>

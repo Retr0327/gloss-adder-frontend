@@ -1,4 +1,8 @@
-function createFormData(files: FormData | [], token: string) {
+function createFormData(
+  files: FormData | [],
+  token: string,
+  cliticOption: string
+) {
   const fileKeys = Object.entries(files);
   const formData = new FormData();
 
@@ -7,6 +11,7 @@ function createFormData(files: FormData | [], token: string) {
   }
 
   formData.append("token", token);
+  formData.append("cliticOption", cliticOption);
 
   return formData;
 }

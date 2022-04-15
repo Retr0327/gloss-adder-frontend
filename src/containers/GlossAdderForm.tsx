@@ -34,7 +34,7 @@ function GlossAdderForm() {
   ) => {
     const { fileUpload, cliticOption } = values;
 
-    const formData = createFormData(fileUpload, TIMESTAMP);
+    const formData = createFormData(fileUpload, TIMESTAMP, cliticOption);
 
     const [result, error] = await uploadGlossFile(
       formData,

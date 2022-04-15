@@ -54,7 +54,10 @@ function GlossAdderForm() {
       case "failed":
         return alert("Oops! Something went wrong!");
       default:
-        router.push(`?token=${result.data.token}`);
+        console.log(result.data);
+        router.push(
+          `?token=${result.data.token}&fileName=${result.data.firstFileName}`
+        );
         setProcess("download");
         return actions.setSubmitting(false);
     }

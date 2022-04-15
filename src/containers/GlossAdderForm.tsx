@@ -56,7 +56,7 @@ function GlossAdderForm() {
       default:
         console.log(result.data);
         router.push(
-          `?token=${result.data.token}&fileName=${result.data.firstFileName}`
+          `?token=${result.data.token}&firstFileName=${result.data.firstFileName}`
         );
         setProcess("download");
         return actions.setSubmitting(false);

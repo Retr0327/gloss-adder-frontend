@@ -4,7 +4,7 @@ import axios, { AxiosRequestConfig } from "axios";
 async function uploadGlossFile(
   credentials: FormData,
   setUploadPercentage: React.Dispatch<React.SetStateAction<number>>
-) {
+): Promise<any[]> {
   try {
     const config: AxiosRequestConfig = {
       headers: { "content-type": "multipart/form-data" },

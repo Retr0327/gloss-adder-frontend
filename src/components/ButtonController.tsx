@@ -1,5 +1,6 @@
 import { Button } from "@mantine/core";
 import { useRouter } from "next/router";
+import { downloadFile } from "src/services";
 import { IconUpload, IconDownload } from "@tabler/icons";
 
 type ButtonControllerType = {
@@ -11,7 +12,12 @@ function ButtonController({ control }: ButtonControllerType) {
 
   const onModifyGlossClick = async () => {
     const { token } = router.query;
-    console.log(token);
+    const [result, error] = await downloadFile(token);
+
+    if (error) {
+      return alert("Oops! Something went wrong!");
+    }
+    
   };
 
   switch (control) {

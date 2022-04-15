@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as Yup from "yup";
 import { FormValueType } from "types";
+import { useRouter } from "next/router";
 import { IconUpload } from "@tabler/icons";
 import SelectedFiles from "./SelectedFiles";
 import { options } from "./Options/options";
@@ -13,6 +14,7 @@ import { FormikController, ProgressBar } from "@components/index";
 let TIMESTAMP = new Date().getTime().toString();
 
 function GlossAdderForm() {
+  const router = useRouter();
   const [uploadPercentage, setUploadPercentage] = useState(0);
 
   const initialValues: FormValueType = {
@@ -39,6 +41,18 @@ function GlossAdderForm() {
     );
 
     setTimeout(() => setUploadPercentage(0), 2000);
+
+    if (error) {
+      return alert("Oops! Something went wrong!");
+    }
+
+    switch (result.data.status) {
+      case "failed":
+        return alert("Oops! Something went wrong!");
+      default:
+        router.push(`?token=${result.data.token}`);
+        return actions.setSubmitting(false);
+    }
   };
 
   return (

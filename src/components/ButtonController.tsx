@@ -1,5 +1,5 @@
 import { Button } from "@mantine/core";
-import { IconUpload } from "@tabler/icons";
+import { IconUpload, IconClick } from "@tabler/icons";
 
 type ButtonControllerType = {
   control: string;
@@ -8,7 +8,7 @@ type ButtonControllerType = {
 function ButtonController({ control }: ButtonControllerType) {
   switch (control) {
     case "modify":
-      return null;
+      return <Button leftIcon={<IconClick />}>修改</Button>;
     default:
       return (
         <Button type="submit" leftIcon={<IconUpload />}>

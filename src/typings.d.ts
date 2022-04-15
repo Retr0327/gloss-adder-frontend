@@ -1,6 +1,15 @@
 import { SelectProps } from "@mantine/core";
 import { DropzoneProps } from "@mantine/dropzone";
 
+export type CustomFetchType = {
+  method: string;
+  url: string;
+  credentials: {
+    [key: string]: any;
+  };
+  purpose: string;
+};
+
 export type FormValueType = {
   fileUpload: FormData | [];
   cliticOption: string;

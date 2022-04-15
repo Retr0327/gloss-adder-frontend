@@ -1,6 +1,6 @@
 import { Button } from "@mantine/core";
 import { useRouter } from "next/router";
-import { IconUpload, IconClick } from "@tabler/icons";
+import { IconUpload, IconDownload } from "@tabler/icons";
 
 type ButtonControllerType = {
   control: string;
@@ -11,12 +11,13 @@ function ButtonController({ control }: ButtonControllerType) {
 
   const onModifyGlossClick = async () => {
     const { token } = router.query;
+    console.log(token);
   };
 
   switch (control) {
     case "download":
       return (
-        <Button leftIcon={<IconClick />} onClick={onModifyGlossClick}>
+        <Button leftIcon={<IconDownload />} onClick={onModifyGlossClick}>
           下載
         </Button>
       );

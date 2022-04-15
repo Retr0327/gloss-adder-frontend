@@ -1,4 +1,4 @@
-function saveFile(blob: Blob, fileName: string) {
+function saveFiles(blob: Blob, fileName: string) {
   const url = window.URL.createObjectURL(blob);
   const anchor = document.createElement("a");
   anchor.style.display = "none";
@@ -9,4 +9,4 @@ function saveFile(blob: Blob, fileName: string) {
   return window.URL.revokeObjectURL(url);
 }
 
-export default saveFile;
+export default saveFiles;

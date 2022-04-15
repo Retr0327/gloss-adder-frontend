@@ -21,8 +21,7 @@ async function customFetch({
 
   switch (purpose) {
     case "download":
-      const body = resp.clone().json();
-      return [body, resp.blob()];
+      return resp.blob();
     default:
       return resp.json();
   }

@@ -1,6 +1,6 @@
 import customFetch from "./customFetch";
 
-async function downloadFile(token: string) {
+async function downloadFile(token: string | string[] | undefined) {
   const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/download/${token}`;
   try {
     const result = await customFetch({

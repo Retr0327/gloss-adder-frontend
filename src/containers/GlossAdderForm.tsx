@@ -9,10 +9,10 @@ import {
 import { FormValueType } from "types";
 import { useRouter } from "next/router";
 import { options } from "./Options/options";
+import { uploadGlossFile } from "src/services";
 import { Title, Grid, Center } from "@mantine/core";
 import { Formik, Form, FormikHelpers } from "formik";
 import createFormData from "./Helpers/createFormData";
-import uploadGlossFile from "src/services/uploadGlossFile";
 
 let TIMESTAMP = new Date().getTime().toString();
 

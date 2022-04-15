@@ -1,4 +1,4 @@
-function saveFiles(blob: Blob, fileName: string) {
+function saveFiles(blob: Blob, fileName: any) {
   const url = window.URL.createObjectURL(blob);
   const anchor = document.createElement("a");
   anchor.style.display = "none";

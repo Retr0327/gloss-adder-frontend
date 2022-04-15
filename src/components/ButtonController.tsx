@@ -1,6 +1,7 @@
 import { Button } from "@mantine/core";
 import { useRouter } from "next/router";
 import { downloadFile } from "src/services";
+import saveFiles from "@containers/Helpers/saveFiles";
 import { IconUpload, IconDownload } from "@tabler/icons";
 
 type ButtonControllerType = {
@@ -17,7 +18,8 @@ function ButtonController({ control }: ButtonControllerType) {
     if (error) {
       return alert("Oops! Something went wrong!");
     }
-    
+
+    saveFiles(result, "body.fileName.zip");
   };
 
   switch (control) {

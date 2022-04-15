@@ -2,7 +2,7 @@ import { Button } from "@mantine/core";
 import { IconUpload } from "@tabler/icons";
 
 type ButtonControllerType = {
-  control?: string;
+  control: string;
 };
 
 function ButtonController({ control }: ButtonControllerType) {

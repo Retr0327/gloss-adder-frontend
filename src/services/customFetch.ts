@@ -1,3 +1,30 @@
 import { CustomFetchType } from "types";
 
-function customFetch({ method, url, credentials, purpose }: CustomFetchType) {}
+async function customFetch({
+  method,
+  url,
+  credentials,
+  purpose,
+}: CustomFetchType): Promise<any | Blob> {
+  const _credentials = credentials ?? {};
+  const _method = method.toUpperCase();
+
+  const resp = await fetch(url, {
+    credentials: "include",
+    method: _method,
+    body: _method !== "GET" ? JSON.stringify(_credentials) : null,
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  });
+
+  switch (purpose) {
+    case "download":
+      return resp.blob();
+    default:
+      return resp.json();
+  }
+}
+
+export default customFetch;

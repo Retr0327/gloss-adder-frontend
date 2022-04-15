@@ -10,14 +10,14 @@ function ButtonController({ control }: ButtonControllerType) {
   const router = useRouter();
 
   const onModifyGlossClick = async () => {
-    const { token, cliticOption } = router.query;
+    const { token } = router.query;
   };
 
   switch (control) {
-    case "modify":
+    case "download":
       return (
         <Button leftIcon={<IconClick />} onClick={onModifyGlossClick}>
-          新增第三行
+          下載
         </Button>
       );
     default:

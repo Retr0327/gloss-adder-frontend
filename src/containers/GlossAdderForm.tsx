@@ -51,7 +51,7 @@ function GlossAdderForm() {
       case "failed":
         return alert("Oops! Something went wrong!");
       default:
-        router.push(`?token=${result.data.token}`);
+        router.push(`?token=${result.data.token}&cliticOption=${cliticOption}`);
         setProcess("modify");
         return actions.setSubmitting(false);
     }

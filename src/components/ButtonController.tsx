@@ -12,14 +12,14 @@ function ButtonController({ control }: ButtonControllerType) {
   const router = useRouter();
 
   const onModifyGlossClick = async () => {
-    const { token } = router.query;
+    const { token, firstFileName } = router.query;
     const [result, error] = await downloadFile(token);
 
     if (error) {
       return alert("Oops! Something went wrong!");
     }
 
-    saveFiles(result, "body.fileName.zip");
+    saveFiles(result, firstFileName);
   };
 
   switch (control) {

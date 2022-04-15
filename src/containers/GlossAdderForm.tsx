@@ -2,13 +2,12 @@ import { useState } from "react";
 import * as Yup from "yup";
 import { FormValueType } from "types";
 import { useRouter } from "next/router";
-import { IconUpload } from "@tabler/icons";
 import { options } from "./Options/options";
 import { Formik, Form, FormikHelpers } from "formik";
 import SelectedFiles from "@components/SelectedFiles";
 import createFormData from "./Helpers/createFormData";
 import uploadGlossFile from "src/services/uploadGlossFile";
-import { Title, Grid, Button, Center } from "@mantine/core";
+import { Title, Grid, Center } from "@mantine/core";
 import ButtonController from "@components/ButtonController";
 import { FormikController, ProgressBar } from "@components/index";
 

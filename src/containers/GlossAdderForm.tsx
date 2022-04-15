@@ -3,11 +3,11 @@ import * as Yup from "yup";
 import { FormValueType } from "types";
 import { useRouter } from "next/router";
 import { options } from "./Options/options";
-import { Formik, Form, FormikHelpers } from "formik";
-import SelectedFiles from "@components/SelectedFiles";
-import createFormData from "./Helpers/createFormData";
-import uploadGlossFile from "src/services/uploadGlossFile";
 import { Title, Grid, Center } from "@mantine/core";
+import { Formik, Form, FormikHelpers } from "formik";
+import createFormData from "./Helpers/createFormData";
+import SelectedFiles from "@components/SelectedFiles";
+import uploadGlossFile from "src/services/uploadGlossFile";
 import ButtonController from "@components/ButtonController";
 import { FormikController, ProgressBar } from "@components/index";
 
@@ -51,8 +51,7 @@ function GlossAdderForm() {
       case "failed":
         return alert("Oops! Something went wrong!");
       default:
-        router.push(`?token=${result.data.token}&cliticOption=${cliticOption}`);
-        setProcess("modify");
+        setProcess("download");
         return actions.setSubmitting(false);
     }
   };

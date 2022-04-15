@@ -9,7 +9,7 @@ export type CustomFetchType = {
   method: string;
   url: string;
   credentials: CredentialsType;
-  purpose: string;
+  purpose?: string;
 };
 
 export type FormValueType = {

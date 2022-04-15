@@ -1,12 +1,14 @@
 import { SelectProps } from "@mantine/core";
 import { DropzoneProps } from "@mantine/dropzone";
 
+export type CredentialsType = {
+  [key: string]: any;
+};
+
 export type CustomFetchType = {
   method: string;
   url: string;
-  credentials: {
-    [key: string]: any;
-  };
+  credentials: CredentialsType;
   purpose: string;
 };
 

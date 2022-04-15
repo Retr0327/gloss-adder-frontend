@@ -1,6 +1,6 @@
 import fs from "fs";
 import type { NextApiRequest } from "next";
-import { UPLOAD_DIR, getUploadFileDir } from "src/constants/constants";
+import { UPLOAD_DIR, getUploadedFileDir } from "src/constants/constants";
 import formidable, { Options, Fields, Files } from "formidable";
 
 type FormDataType = {

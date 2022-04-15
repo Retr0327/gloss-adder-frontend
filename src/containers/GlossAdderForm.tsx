@@ -52,6 +52,7 @@ function GlossAdderForm() {
         return alert("Oops! Something went wrong!");
       default:
         router.push(`?token=${result.data.token}`);
+        setProcess("modify");
         return actions.setSubmitting(false);
     }
   };

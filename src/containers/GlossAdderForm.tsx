@@ -1,15 +1,18 @@
 import { useState } from "react";
 import * as Yup from "yup";
+import {
+  FormikController,
+  ProgressBar,
+  SelectedFiles,
+  ButtonController,
+} from "@components/index";
 import { FormValueType } from "types";
 import { useRouter } from "next/router";
 import { options } from "./Options/options";
 import { Title, Grid, Center } from "@mantine/core";
 import { Formik, Form, FormikHelpers } from "formik";
 import createFormData from "./Helpers/createFormData";
-import SelectedFiles from "@components/SelectedFiles";
 import uploadGlossFile from "src/services/uploadGlossFile";
-import ButtonController from "@components/ButtonController";
-import { FormikController, ProgressBar } from "@components/index";
 
 let TIMESTAMP = new Date().getTime().toString();
 
@@ -51,6 +54,7 @@ function GlossAdderForm() {
       case "failed":
         return alert("Oops! Something went wrong!");
       default:
+        router.push(`?token=${result.data.token}`);
         setProcess("download");
         return actions.setSubmitting(false);
     }

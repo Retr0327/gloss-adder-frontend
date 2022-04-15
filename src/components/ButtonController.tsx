@@ -8,7 +8,7 @@ type ButtonControllerType = {
 function ButtonController({ control }: ButtonControllerType) {
   switch (control) {
     case "modify":
-      return <Button leftIcon={<IconClick />}>修改</Button>;
+      return <Button leftIcon={<IconClick />}>新增第三行</Button>;
     default:
       return (
         <Button type="submit" leftIcon={<IconUpload />}>

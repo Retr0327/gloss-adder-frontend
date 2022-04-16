@@ -1,10 +1,22 @@
 import { SelectProps } from "@mantine/core";
+import { DISABLED, RESET } from "./constants";
 import { DropzoneProps } from "@mantine/dropzone";
 
-type DropZoneState = {
+export type DropZoneState = {
   status: boolean;
   process: string;
 };
+
+type DropZoneAction = {
+  type: typeof DISABLED;
+  payload: string;
+};
+
+type ResetAction = {
+  type: typeof RESET;
+};
+
+export type ActionType = DropZoneAction | ResetAction;
 
 export type CredentialsType = {
   [key: string]: any;

@@ -1,7 +1,7 @@
 import { DropZoneState } from "types";
+import { DISABLED, RESET } from "src/constants";
 import React, { createContext, useContext } from "react";
-import useDropZoneStatus from "src/stores/useDropZoneStatus";
-import { DISABLED, RESET } from "../stores/constants";
+import useDropZoneStatus from "src/hooks/useDropZoneStatus";
 
 type ContextProviderProps = {
   children: React.ReactNode;

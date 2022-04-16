@@ -1,17 +1,34 @@
+import { DropZoneState } from "types";
 import React, { createContext, useContext } from "react";
 import useDropZoneStatus from "src/stores/useDropZoneStatus";
+import { DISABLED, RESET } from "../stores/constants";
 
-type ChildrenType = {
+type ContextProviderProps = {
   children: React.ReactNode;
 };
 
-const DropZoneContext = createContext(null as any);
+type DropZoneAction = {
+  type: typeof DISABLED;
+  payload: string;
+};
+
+type ResetAction = {
+  type: typeof RESET;
+};
+type ActionType = DropZoneAction | ResetAction;
+
+type DropZoneContextType = {
+  dropZone: DropZoneState;
+  dispatch: React.Dispatch<ActionType>;
+};
+
+const DropZoneContext = createContext({} as DropZoneContextType);
 
 const useDropZone = () => {
   return useContext(DropZoneContext);
 };
 
-const DropZoneProvider = ({ children }: ChildrenType) => {
+const DropZoneProvider = ({ children }: ContextProviderProps) => {
   const [dropZone, dispatch] = useDropZoneStatus();
 
   return (

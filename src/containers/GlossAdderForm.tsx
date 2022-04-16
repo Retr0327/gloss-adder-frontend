@@ -8,9 +8,9 @@ import {
 } from "@components/index";
 import { FormValueType } from "types";
 import { useRouter } from "next/router";
+import { DISABLED } from "src/constants";
 import { options } from "./Options/options";
 import { uploadGlossFile } from "src/services";
-import { DISABLED } from "src/stores/constants";
 import { Title, Grid, Center } from "@mantine/core";
 import { Formik, Form, FormikHelpers } from "formik";
 import createFormData from "./Helpers/createFormData";

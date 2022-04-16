@@ -21,7 +21,6 @@ let TIMESTAMP = new Date().getTime().toString();
 function GlossAdderForm() {
   const router = useRouter();
   const { dispatch } = useDropZone();
-  const [process, setProcess] = useState("upload");
   const [uploadPercentage, setUploadPercentage] = useState(0);
 
   const initialValues: FormValueType = {
@@ -57,11 +56,10 @@ function GlossAdderForm() {
       case "failed":
         return alert("Oops! Something went wrong!");
       default:
-        dispatch({ type: DISABLED });
+        dispatch({ type: DISABLED, payload: "download" });
         router.push(
           `?token=${result.data.token}&firstFileName=${result.data.firstFileName}`
         );
-        setProcess("download");
         return actions.setSubmitting(false);
     }
   };
@@ -109,7 +107,7 @@ function GlossAdderForm() {
 
             <Grid.Col xs={12} sm={12} md={12} lg={10} mt={60}>
               <Center>
-                <ButtonController control={process} />
+                <ButtonController />
               </Center>
             </Grid.Col>
           </Grid>

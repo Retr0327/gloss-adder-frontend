@@ -1,6 +1,11 @@
 import { SelectProps } from "@mantine/core";
 import { DropzoneProps } from "@mantine/dropzone";
 
+type DropZoneState = {
+  status: boolean;
+  process: string;
+};
+
 export type CredentialsType = {
   [key: string]: any;
 };

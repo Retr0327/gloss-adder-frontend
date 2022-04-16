@@ -11,7 +11,7 @@ type ButtonControllerType = {
 function ButtonController({ control }: ButtonControllerType) {
   const router = useRouter();
 
-  const onModifyGlossClick = async () => {
+  const onDownloadClick = async () => {
     const { token, firstFileName } = router.query;
     const [result, error] = await downloadFile(token);
 
@@ -27,7 +27,7 @@ function ButtonController({ control }: ButtonControllerType) {
   switch (control) {
     case "download":
       return (
-        <Button leftIcon={<IconDownload />} onClick={onModifyGlossClick}>
+        <Button leftIcon={<IconDownload />} onClick={onDownloadClick}>
           下載
         </Button>
       );

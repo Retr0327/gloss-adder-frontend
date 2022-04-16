@@ -1,16 +1,17 @@
 import { useReducer } from "react";
+import { DISABLED, RESET } from "./constants";
 
 type DropZoneState = {
   status: boolean;
 };
 
 type DropZoneAction = {
-  type: "disabled";
+  type: typeof DISABLED;
   payload: boolean;
 };
 
 type ResetAction = {
-  type: "reset";
+  type: typeof RESET;
 };
 type ActionType = DropZoneAction | ResetAction;
 
@@ -20,9 +21,9 @@ const initialState: DropZoneState = {
 
 const reducer = (state: DropZoneState, action: ActionType) => {
   switch (action.type) {
-    case "disabled":
+    case DISABLED:
       return { status: true };
-    case "reset":
+    case RESET:
       return initialState;
     default:
       return state;

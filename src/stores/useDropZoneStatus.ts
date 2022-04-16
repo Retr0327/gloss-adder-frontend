@@ -3,11 +3,12 @@ import { DISABLED, RESET } from "./constants";
 
 type DropZoneState = {
   status: boolean;
+  process: string;
 };
 
 type DropZoneAction = {
   type: typeof DISABLED;
-  payload: boolean;
+  payload: string;
 };
 
 type ResetAction = {
@@ -17,12 +18,13 @@ type ActionType = DropZoneAction | ResetAction;
 
 const initialState: DropZoneState = {
   status: false,
+  process: "upload",
 };
 
 const reducer = (state: DropZoneState, action: ActionType) => {
   switch (action.type) {
     case DISABLED:
-      return { status: true };
+      return { status: true, process: action.payload };
     case RESET:
       return initialState;
     default:

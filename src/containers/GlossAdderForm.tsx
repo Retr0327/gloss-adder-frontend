@@ -10,14 +10,17 @@ import { FormValueType } from "types";
 import { useRouter } from "next/router";
 import { options } from "./Options/options";
 import { uploadGlossFile } from "src/services";
+import { DISABLED } from "src/stores/constants";
 import { Title, Grid, Center } from "@mantine/core";
 import { Formik, Form, FormikHelpers } from "formik";
 import createFormData from "./Helpers/createFormData";
+import { useDropZone } from "src/context/DropZoneContext";
 
 let TIMESTAMP = new Date().getTime().toString();
 
 function GlossAdderForm() {
   const router = useRouter();
+  const { dispatch } = useDropZone();
   const [process, setProcess] = useState("upload");
   const [uploadPercentage, setUploadPercentage] = useState(0);
 
@@ -54,7 +57,7 @@ function GlossAdderForm() {
       case "failed":
         return alert("Oops! Something went wrong!");
       default:
-        console.log(result.data);
+        dispatch({ type: DISABLED });
         router.push(
           `?token=${result.data.token}&firstFileName=${result.data.firstFileName}`
         );

@@ -4,7 +4,7 @@ import GlossAdder from "src/containers/GlossAdder";
 
 const Home: NextPage = () => {
   return (
-    <Container>
+    <Container style={{ marginTop: 100 }}>
       <GlossAdder />
     </Container>
   );

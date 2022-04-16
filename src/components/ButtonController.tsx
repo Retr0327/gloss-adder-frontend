@@ -6,13 +6,9 @@ import saveFiles from "@containers/Helpers/saveFiles";
 import { IconUpload, IconDownload } from "@tabler/icons";
 import { useDropZone } from "src/context/DropZoneContext";
 
-type ButtonControllerType = {
-  control: string;
-};
-
-function ButtonController({ control }: ButtonControllerType) {
+function ButtonController() {
   const router = useRouter();
-  const { dispatch } = useDropZone();
+  const { dropZone, dispatch } = useDropZone();
 
   const onDownloadClick = async () => {
     const { token, firstFileName } = router.query;
@@ -28,7 +24,7 @@ function ButtonController({ control }: ButtonControllerType) {
     dispatch({ type: RESET });
   };
 
-  switch (control) {
+  switch (dropZone.process) {
     case "download":
       return (
         <Button leftIcon={<IconDownload />} onClick={onDownloadClick}>

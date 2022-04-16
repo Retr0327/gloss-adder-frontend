@@ -1,8 +1,10 @@
 import { Button } from "@mantine/core";
 import { useRouter } from "next/router";
 import { downloadFile } from "src/services";
+import { RESET } from "src/stores/constants";
 import saveFiles from "@containers/Helpers/saveFiles";
 import { IconUpload, IconDownload } from "@tabler/icons";
+import { useDropZone } from "src/context/DropZoneContext";
 
 type ButtonControllerType = {
   control: string;
@@ -10,6 +12,7 @@ type ButtonControllerType = {
 
 function ButtonController({ control }: ButtonControllerType) {
   const router = useRouter();
+  const { dispatch } = useDropZone();
 
   const onDownloadClick = async () => {
     const { token, firstFileName } = router.query;
@@ -22,6 +25,7 @@ function ButtonController({ control }: ButtonControllerType) {
     saveFiles(result, firstFileName);
 
     router.push(router.pathname);
+    dispatch({ type: RESET });
   };
 
   switch (control) {

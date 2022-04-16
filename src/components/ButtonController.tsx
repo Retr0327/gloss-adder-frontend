@@ -20,6 +20,8 @@ function ButtonController({ control }: ButtonControllerType) {
     }
 
     saveFiles(result, firstFileName);
+
+    router.push(router.pathname);
   };
 
   switch (control) {

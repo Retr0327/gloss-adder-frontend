@@ -24,7 +24,7 @@ const initialState: DropZoneState = {
 const reducer = (state: DropZoneState, action: ActionType) => {
   switch (action.type) {
     case DISABLED:
-      return { status: true, process: action.payload };
+      return { ...state, status: true, process: action.payload };
     case RESET:
       return initialState;
     default:

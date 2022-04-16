@@ -1,7 +1,7 @@
+import { RESET } from "src/constants";
 import { Button } from "@mantine/core";
 import { useRouter } from "next/router";
 import { downloadFile } from "src/services";
-import { RESET } from "src/stores/constants";
 import saveFiles from "@containers/Helpers/saveFiles";
 import { IconUpload, IconDownload } from "@tabler/icons";
 import { useDropZone } from "src/context/DropZoneContext";

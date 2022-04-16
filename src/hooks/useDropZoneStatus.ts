@@ -1,20 +1,6 @@
 import { useReducer } from "react";
-import { DISABLED, RESET } from "./constants";
-
-type DropZoneState = {
-  status: boolean;
-  process: string;
-};
-
-type DropZoneAction = {
-  type: typeof DISABLED;
-  payload: string;
-};
-
-type ResetAction = {
-  type: typeof RESET;
-};
-type ActionType = DropZoneAction | ResetAction;
+import { DISABLED, RESET } from "src/constants";
+import { DropZoneState, ActionType } from "types";
 
 const initialState: DropZoneState = {
   status: false,

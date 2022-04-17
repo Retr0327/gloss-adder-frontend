@@ -51,6 +51,9 @@ const nextConfig = {
   async headers() {
     return [{ source: "/:path*{/}?", headers: securityHeaders }];
   },
+  experimental: {
+    outputStandalone: true,
+  },
 };
 
 module.exports = nextConfig;

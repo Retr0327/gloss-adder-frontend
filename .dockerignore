@@ -17,12 +17,6 @@ yarn-error.log*
 # git
 .git
 
-#upload files
-upload/
-
-# zip files
-.zip
-
 # readme
 README.md
 

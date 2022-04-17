@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-};
 
-module.exports = nextConfig;
+let ignoreDuringBuilds = false;
+
+if (process.env.NODE_ENV === "production") {
+  ignoreDuringBuilds = true;
+}
 
 const ContentSecurityPolicy = `
  default-src 'self';
@@ -42,8 +43,14 @@ const securityHeaders = [
   },
 ];
 
-module.exports = {
+const nextConfig = {
+  reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds,
+  },
   async headers() {
     return [{ source: "/:path*{/}?", headers: securityHeaders }];
   },
 };
+
+module.exports = nextConfig;

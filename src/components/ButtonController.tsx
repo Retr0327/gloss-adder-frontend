@@ -18,10 +18,13 @@ function ButtonController() {
       return alert("Oops! Something went wrong!");
     }
 
-    saveFiles(result, firstFileName);
+    const blob = result as Blob;
+
+    saveFiles(blob, firstFileName);
 
     router.push(router.pathname);
     dispatch({ type: RESET });
+    window.location.reload();
   };
 
   switch (dropZone.process) {

@@ -1,6 +1,6 @@
 import { SelectItem } from "./Helpers";
-import useCustomFormik from "./CustomFormik";
 import { IconChevronDown } from "@tabler/icons";
+import useCustomFormik from "@hooks/useCustomFormik";
 import { OptionsProps, ControlledProps } from "types";
 import { Select as MantineSelect, SelectProps } from "@mantine/core";
 

@@ -1,6 +1,6 @@
 import { ControlledProps } from "types";
-import useCustomFormik from "./CustomFormik";
 import { useMantineTheme } from "@mantine/core";
+import useCustomFormik from "@hooks/useCustomFormik";
 import { useDropZone } from "src/context/DropZoneContext";
 import { Dropzone, DropzoneProps } from "@mantine/dropzone";
 import { fileDropzoneChildren, removeDuplicateFiles } from "./Helpers/index";

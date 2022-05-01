@@ -1,7 +1,8 @@
+import { API } from "src/constants";
 import customFetch from "./customFetch";
 
 async function downloadFile(token: string | string[] | undefined) {
-  const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/download/${token}`;
+  const url = `${API}/download/${token}`;
   try {
     const result = await customFetch({
       method: "GET",

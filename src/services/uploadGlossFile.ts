@@ -1,4 +1,5 @@
 import React from "react";
+import { API } from "src/constants";
 import axios, { AxiosRequestConfig } from "axios";
 
 async function uploadGlossFile(
@@ -15,7 +16,7 @@ async function uploadGlossFile(
       },
     };
 
-    const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/uploadGloss`;
+    const url = `${API}/uploadGloss`;
 
     const result = await axios.post(url, credentials, config);
 
